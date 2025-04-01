@@ -23,7 +23,7 @@ class ExamenTest extends TestCase
      */
     public function givenStringReturnsEmptyString() : void
     {
-        $returnValue = $this->examen->returnBorrowedBooks("ale");
+        $returnValue = $this->examen->instructionProcessor("ale");
         $this->assertEquals("",$returnValue);
     }
 

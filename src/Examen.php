@@ -13,7 +13,7 @@ class Examen
      *
      * @return string
      */
-    public function returnBorrowedBooks(string $instruction): string
+    public function instructionProcessor(string $instruction): string
     {
         return "" ;
     }
