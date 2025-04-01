@@ -15,6 +15,9 @@ class Examen
      */
     public function instructionProcessor(string $instruction): string
     {
+        if(strlen($instruction) > 1){
+            return "Success" ;
+        }
         return "" ;
     }
 }

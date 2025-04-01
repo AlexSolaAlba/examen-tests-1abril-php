@@ -21,11 +21,19 @@ class ExamenTest extends TestCase
     /**
      * @test
      */
-    public function givenStringReturnsEmptyString() : void
+    public function givenEmptyStringReturnsEmptyString() : void
     {
-        $returnValue = $this->examen->instructionProcessor("ale");
+        $returnValue = $this->examen->instructionProcessor("");
         $this->assertEquals("",$returnValue);
     }
 
+    /**
+     * @test
+     */
+    public function givenLendReturnsSuccess() : void
+    {
+        $returnValue = $this->examen->instructionProcessor("lend dune");
+        $this->assertEquals("Success",$returnValue);
+    }
 
 }
