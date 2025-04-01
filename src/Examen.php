@@ -17,7 +17,7 @@ class Examen
      */
     public function instructionProcessor(string $instruction): string
     {
-        $library = [];
+        $library = ["aaa"];
         $libraryCopies = [1];
 
         if(strlen($instruction) > 1){
@@ -39,9 +39,16 @@ class Examen
         $book = explode(" ", $instruction)[1];
         if($numArguments == 2){
             if(in_array($book, $library)){
+                $bookIndex = 0;
                 foreach ($library as $bookInLibrary) {
-                    if ($bookInLibrary == $book) {}
+                    if ($bookInLibrary != $book) {
+                        $bookIndex = $bookIndex + 1;
+                    }else{
+                        break;
+                    }
                 }
+                $libraryCopies[$bookIndex] += 1;
+                return $libraryCopies[$bookIndex];
             }else{
                 array_push($library, $book);
                 array_push($libraryCopies, 1);
