@@ -30,7 +30,7 @@ class ExamenTest extends TestCase
     /**
      * @test
      */
-    public function givenLendWithBookNameAndNoNumberReturnsSuccess() : void
+    public function givenLendWithBookNameAndNoNumberOfCopiesReturnsSuccess() : void
     {
         $returnValue = $this->examen->instructionProcessor("lend dune");
         $this->assertEquals("Success lending dune",$returnValue);
@@ -39,7 +39,7 @@ class ExamenTest extends TestCase
     /**
      * @test
      */
-    public function givenLendWithBookNameAndNumberReturnsSuccess() : void
+    public function givenLendWithBookNameAndNumberOfCopiesReturnsSuccess() : void
     {
         $returnValue = $this->examen->instructionProcessor("lend dune 3");
         $this->assertEquals("Success lending dune 3",$returnValue);
