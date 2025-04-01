@@ -16,18 +16,26 @@ class Examen
     public function instructionProcessor(string $instruction): string
     {
         if(strlen($instruction) > 1){
-            $arguments = explode(" ", $instruction);
-            $numArguments = count($arguments);
-            if($numArguments == 2){
-                $book = explode(" ", $instruction)[1];
-                return "Success lending " . $book;
-            }else{
-                $book = explode(" ", $instruction)[1];
-                $bookCopies = explode(" ", $instruction)[2];
-                return "Success lending " . $book . " " . $bookCopies;
-            }
-
+            if(explode(" ", $instruction)[0] == "lend") return $this->lendBooks($instruction);
         }
         return "" ;
+    }
+
+    /**
+     * @param string $instruction
+     *
+     * @return string
+     */
+    public function lendBooks(string $instruction): string
+    {
+        $arguments = explode(" ", $instruction);
+        $numArguments = count($arguments);
+        $book = explode(" ", $instruction)[1];
+        if($numArguments == 2){
+            return "Success lending " . $book;
+        }else{
+            $bookCopies = explode(" ", $instruction)[2];
+            return "Success lending " . $book . " " . $bookCopies;
+        }
     }
 }
