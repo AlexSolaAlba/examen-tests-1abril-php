@@ -36,4 +36,15 @@ class ExamenTest extends TestCase
         $this->assertEquals("Success lending dune",$returnValue);
     }
 
+    /**
+     * @test
+     */
+    public function givenLendWithBookNameAndNumberReturnsSuccess() : void
+    {
+        $returnValue = $this->examen->instructionProcessor("lend dune 3");
+        $this->assertEquals("Success lending dune 3",$returnValue);
+    }
+
+
+
 }
