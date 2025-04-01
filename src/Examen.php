@@ -39,16 +39,7 @@ class Examen
         $book = explode(" ", $instruction)[1];
         if($numArguments == 2){
             if(in_array($book, $library)){
-                $bookIndex = 0;
-                foreach ($library as $bookInLibrary) {
-                    if ($bookInLibrary != $book) {
-                        $bookIndex = $bookIndex + 1;
-                    }else{
-                        break;
-                    }
-                }
-                $libraryCopies[$bookIndex] += 1;
-                return $libraryCopies[$bookIndex];
+                return $this->sumBookCopies($book, $library,$libraryCopies);
             }else{
                 array_push($library, $book);
                 array_push($libraryCopies, 1);
@@ -58,5 +49,24 @@ class Examen
             $bookCopies = explode(" ", $instruction)[2];
             return "Success lending " . $book . " " . $bookCopies;
         }
+    }
+
+    /**
+     * @param $book
+     * @param array $library
+     * @param array $libraryCopies
+     * @return int
+     */
+    public function sumBookCopies(string $book, array $library,array $libraryCopies): int{
+        $bookIndex = 0;
+        foreach ($library as $bookInLibrary) {
+            if ($bookInLibrary != $book) {
+                $bookIndex = $bookIndex + 1;
+            }else{
+                break;
+            }
+        }
+        $libraryCopies[$bookIndex] += 1;
+        return $libraryCopies[$bookIndex];
     }
 }
